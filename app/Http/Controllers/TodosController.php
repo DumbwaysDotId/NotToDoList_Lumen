@@ -20,7 +20,12 @@ class TodosController extends Controller {
     }
 
     public function store(Request $request){
-      return "Todos {POST}". $request->description;
+      // return (array)$request;
+      DB::table('todos')->insert([
+        'name'=> $request->name
+      ]);
+
+      return "true";
     }
 
     public function update(Request $request, $id){
