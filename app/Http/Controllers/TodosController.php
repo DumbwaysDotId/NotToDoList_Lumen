@@ -28,11 +28,11 @@ class TodosController extends Controller {
     }
 
     public function view($id){
-      return "Todos {GET:id}". $id;
+      return json_encode(DB::table('todos')->where('id', $id)->first());
     }
 
     public function delete($id){
-      return "Todos {DELETE:id}";
+      return DB::table('todos')->where('id', $id)->delete();
     }
 
 }
