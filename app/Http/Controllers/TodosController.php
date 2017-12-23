@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class TodosController extends Controller {
     /**
      * Create a new controller instance.
@@ -16,19 +18,19 @@ class TodosController extends Controller {
       return "Todos {GET}";
     }
 
-    public function store(){
-      return "Todos {POST}";
+    public function store(Request $request){
+      return "Todos {POST}". $request->description;
     }
 
-    public function update(){
-      return "Todos {PATCH:id}";
+    public function update(Request $request, $id){
+      return "Todos {PATCH:id} ".$id." ".$request->name;
     }
 
-    public function view(){
-      return "Todos {GET:id}";
+    public function view($id){
+      return "Todos {GET:id}". $id;
     }
 
-    public function delete(){
+    public function delete($id){
       return "Todos {DELETE:id}";
     }
 
