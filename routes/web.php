@@ -12,7 +12,9 @@
 */
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('todos', function ()    {
-        return "Todos";
-    });
+    $router->get('todos', 'TodosController@index');
+    $router->get('todos/{id}', 'TodosController@view');
+    $router->post('todos', 'TodosController@store');
+    $router->patch('todos/{id}', 'TodosController@update');
+    $router->delete('todos/{id}', 'TodosController@delete');
 });
