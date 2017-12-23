@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TodosController extends Controller {
     /**
@@ -15,7 +16,7 @@ class TodosController extends Controller {
     }
 
     public function index(){
-      return "Todos {GET}";
+      return DB::table('todos')->get();
     }
 
     public function store(Request $request){
