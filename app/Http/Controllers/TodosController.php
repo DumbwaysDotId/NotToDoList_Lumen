@@ -30,7 +30,7 @@ class TodosController extends Controller {
 
     public function update(Request $request, $id){
       return DB::table('todos')->where('id', $id)->update([
-        'name'=> $request->name
+        'isDone'=> $request->isDone
       ]);
     }
 
